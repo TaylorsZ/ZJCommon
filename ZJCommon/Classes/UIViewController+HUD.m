@@ -36,8 +36,8 @@ static const void *kProTapG = @"k_Pro_TapG";
     UILabel *subhud = objc_getAssociatedObject(self, &kHud);
     if (subhud == nil) {
         subhud = [[UILabel alloc]initWithFrame:CGRectMake(20, self.view.center.y, self.view.frame.size.width - 40, 30)];
-        subhud.textColor = RGBSameColor(100);
-        subhud.font = KboldFont(15);
+        subhud.textColor = [UIColor colorWithRed:100.f/255.f green:100.f/255.f blue:100.f/255.f alpha:1];
+        subhud.font = [UIFont systemFontOfSize:15];
         subhud.textAlignment = NSTextAlignmentCenter;
         [self.view addSubview:subhud];
         
@@ -60,7 +60,7 @@ static const void *kProTapG = @"k_Pro_TapG";
     if (status) {
         self.labelHud.text = status;
     }
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - KiosScaleW(100)) / 2, self.view.center.y - KiosScaleW(105), KiosScaleW(100), KiosScaleW(100))];
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 100) / 2, self.view.center.y - 105, 100, 100)];
     [imageView setImage:[UIImage imageNamed:@"page_nodata"]];
     imageView.hidden = NO;
     self.labelHud.hidden = NO;
@@ -75,9 +75,9 @@ static const void *kProTapG = @"k_Pro_TapG";
     }
     if (imageName) {
         
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - KiosScaleW(100)) / 2, self.view.center.y - KiosScaleW(100)-5, KiosScaleW(100), KiosScaleW(100))];
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 100) / 2, self.view.center.y - 100-5, 100, 100)];
         
-         [imageView setImage:[UIImage imageNamed:imageName]];
+        [imageView setImage:[UIImage imageNamed:imageName]];
         
         imageView.tag = 110086;
         [self.view addSubview:imageView];
@@ -142,7 +142,7 @@ static const void *kProTapG = @"k_Pro_TapG";
         [imageView removeFromSuperview];
         [self.view removeGestureRecognizer: self.tapGestureBlock];
     }
-   
+    
 }
 
 @end
